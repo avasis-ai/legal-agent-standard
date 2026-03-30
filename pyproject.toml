@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "legal-agent-standard"
+version = "0.1.0"
+description = "The legally binding open standard for autonomous contract agents"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Avasis AI", email = "contact@avasis.ai" }
+]
+maintainers = [
+    { name = "Avasis AI", email = "contact@avasis.ai" }
+]
+keywords = [
+    "legal",
+    "contract",
+    "compliance",
+    "audit",
+    "cryptography",
+    "agent",
+    "liability",
+    "governance",
+    "legal-tech",
+    "audit-log"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "cryptography>=41.0",
+    "pyyaml>=6.0",
+    "jsonschema>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/avasis-ai/legal-agent-standard"
+Documentation = "https://github.com/avasis-ai/legal-agent-standard#readme"
+Repository = "https://github.com/avasis-ai/legal-agent-standard.git"
+Issues = "https://github.com/avasis-ai/legal-agent-standard/issues"
+
+[project.scripts]
+legal-agent = "legal_agent_standard.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/legal_agent_standard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
